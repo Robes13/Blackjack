@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Controller
 {
+    /// <summary>
+    /// This class runs the entire game.
+    /// </summary>
     internal class Game
     {
         public void StartGame()

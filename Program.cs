@@ -11,6 +11,7 @@ namespace Blackjack
     {
         static void Main(string[] args)
         {
+            // Starting the game
             Game game = new Game();
             game.StartGame();
         }

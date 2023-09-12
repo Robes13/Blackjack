@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Controller
 {
+    /// <summary>
+    /// This class Draws card for the dealer
+    /// </summary>
     internal class DealerDraw
     {
+        /// <summary>
+        /// This method will keep drawing cards until it cant anymore, it will stop if it hits 21.
+        /// </summary>
+        /// <param name="_dealerCards"></param>
+        /// <param name="playerCards"></param>
+        /// <returns></returns>
         public List<byte> DealerDrawnCards(List<byte> _dealerCards, List<byte> playerCards)
         {
             int playerScore = 0;

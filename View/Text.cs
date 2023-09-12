@@ -26,6 +26,12 @@ namespace Blackjack.View
         {
             Console.WriteLine("Welcome to BlackJack Game, press any key to start");
         }
+        /// <summary>
+        /// Displays the starting hands.
+        /// </summary>
+        /// <param name="firstCard"></param>
+        /// <param name="secondCard"></param>
+        /// <param name="dealerCard"></param>
         public void CardsStart(byte firstCard, byte secondCard, byte dealerCard)
         {
             if (firstCard == 1)
@@ -41,14 +47,26 @@ namespace Blackjack.View
                 Console.WriteLine($"You got {firstCard} & {secondCard}, and the dealer got {dealerCard} & X");
             }
         }
+        /// <summary>
+        /// Asking the user if they want to hit
+        /// </summary>
         public void DoUserHit()
         {
             Console.WriteLine("Press y to to hit, or press n to stand!");
         }
+        /// <summary>
+        /// This will be printed everytime the player draws a card.
+        /// </summary>
+        /// <param name="cardHit"></param>
         public void CardsHit(byte cardHit)
         {
             Console.WriteLine($"You hit a {cardHit}!");
         }
+        /// <summary>
+        /// This will print what cards the player currently has, and what cards the dealer has when they choose to stand.
+        /// </summary>
+        /// <param name="playerCardsList"></param>
+        /// <param name="dealerFirstCard"></param>
         public void Stand(List<byte> playerCardsList, byte dealerFirstCard)
         {
             string[] playerCards = ConvertListToString(playerCardsList);
@@ -70,6 +88,11 @@ namespace Blackjack.View
             }
             Console.Write($".\nThe dealer has {dealerFirstCard} & X.\n");
         }
+        /// <summary>
+        /// This displays when the dealer is drawing.
+        /// </summary>
+        /// <param name="playerCardsList"></param>
+        /// <param name="dealerCardsList"></param>
         public void DealerDrawing(List<byte> playerCardsList, List<byte> dealerCardsList)
         {
             Console.Clear();
@@ -103,6 +126,13 @@ namespace Blackjack.View
                 count++;
             }
         }
+        /// <summary>
+        /// This will get displayed when the user hits a blackjack
+        /// </summary>
+        /// <param name="firstCard"></param>
+        /// <param name="secondCard"></param>
+        /// <param name="dealerFirstCard"></param>
+        /// <param name="dealerSecondCard"></param>
         public void Blackjack(byte firstCard, byte secondCard, byte dealerFirstCard, byte dealerSecondCard)
         {
             if (firstCard == 1)
@@ -114,6 +144,12 @@ namespace Blackjack.View
                 Console.WriteLine($"Congratulations you hit a BLACKJACK! {firstCard} & {secondCard * 11}.\nThe dealer had {dealerFirstCard} & {dealerSecondCard}.");
             }
         }
+        /// <summary>
+        /// This will be displayed when the player busts
+        /// </summary>
+        /// <param name="playerCards"></param>
+        /// <param name="dealerFirstCard"></param>
+        /// <param name="dealerSecondCard"></param>
         public void Bust(string[] playerCards, byte dealerFirstCard, byte dealerSecondCard)
         {
             int lastIndex = playerCards.GetUpperBound(0);
@@ -129,6 +165,11 @@ namespace Blackjack.View
             }
             Console.Write($".\nThe dealer had {dealerFirstCard} & {dealerSecondCard}.\n");
         }
+        /// <summary>
+        /// This is used to display the winnner
+        /// </summary>
+        /// <param name="playerCardsList"></param>
+        /// <param name="dealerCardsList"></param>
         public void DisplayWinner(List<byte> playerCardsList, List<byte> dealerCardsList)
         {
             string[] playerCards = ConvertListToString(playerCardsList);
@@ -212,7 +253,11 @@ namespace Blackjack.View
                 Console.Write("\nPress any key to play again, or press ESC to exit.");
             }
         }
-
+        /// <summary>
+        /// THis method converts a list of bytes, to a list of strings.
+        /// </summary>
+        /// <param name="Cards"></param>
+        /// <returns></returns>
         public string[] ConvertListToString(List<byte> Cards)
         {
             int listLength = Cards.Count();
